@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bharat Kids - Learn Indian Culture</title>
+    <link rel="stylesheet" href="/src/style.css">
+  </head>
+  <body>
+    <nav>
+      <div class="nav-content">
+        <div class="logo">
+          <span>🐘</span> Bharat Kids
+        </div>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#festivals">Festivals</a>
+          <a href="#map-section">Map</a>
+          <a href="#rangoli-section">Rangoli</a>
+          <a href="#stories">Stories</a>
+          <a href="#badges-section">Badges</a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="home" class="hero">
+      <div class="floating-elements"></div>
+      <div class="hero-mascot">
+        <img src="https://picsum.photos/seed/explorer/300/300" alt="Little Explorer" class="mascot-img" referrerPolicy="no-referrer">
+      </div>
+      <h1>Namaste, Little Explorer! 🙏</h1>
+      <p class="hero-subtitle">Welcome to a magical journey through the colors, stories, and traditions of India!</p>
+      
+      <!-- Daily Culture Card -->
+      <div id="daily-card" class="daily-card">
+        <div class="card-tag">Culture of the Day ✨</div>
+        <h3 id="daily-title">Loading...</h3>
+        <p id="daily-text"></p>
+      </div>
+
+      <div style="margin-top: 40px;">
+        <a href="#festivals" class="play-btn" style="text-decoration: none;">Start Exploring! 🚀</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Voice Learning Mode -->
+      <section id="voice-learning">
+        <h2 class="section-title">Learn to Speak! 🗣️</h2>
+        <p style="text-align: center; margin-bottom: 30px;">Click the words to hear them. Repeat after me!</p>
+        <div class="voice-grid">
+          <div class="voice-chip" onclick="speakWord('Namaste')"><span>🙏</span> Namaste <small>🔊</small></div>
+          <div class="voice-chip" onclick="speakWord('Dharma')"><span>⚖️</span> Dharma <small>🔊</small></div>
+          <div class="voice-chip" onclick="speakWord('Guru')"><span>👨‍🏫</span> Guru <small>🔊</small></div>
+          <div class="voice-chip" onclick="speakWord('Shanti')"><span>🕊️</span> Shanti <small>🔊</small></div>
+          <div class="voice-chip" onclick="speakWord('Utsav')"><span>🎉</span> Utsav <small>🔊</small></div>
+          <div class="voice-chip" onclick="speakWord('Sanskar')"><span>✨</span> Sanskar <small>🔊</small></div>
+        </div>
+      </section>
+
+      <!-- Indian Festivals -->
+      <section id="festivals">
+        <h2 class="section-title">Colorful Indian Festivals 🌈</h2>
+        <p style="text-align: center; margin-bottom: 20px;">Click the icons for a surprise! ✨</p>
+        <div class="grid">
+          <div class="card festival-card" data-id="diwali">
+            <div class="interactive-area" id="diwali-area">
+              <span class="card-icon interactive-icon" onclick="triggerFestivalAnim('diwali', event)">🪔</span>
+            </div>
+            <h3>Diwali</h3>
+            <p>The festival of lights and sweets!</p>
+          </div>
+          <div class="card festival-card" data-id="holi">
+            <div class="interactive-area" id="holi-area">
+              <span class="card-icon interactive-icon" onclick="triggerFestivalAnim('holi', event)">🎨</span>
+            </div>
+            <h3>Holi</h3>
+            <p>The festival of colors and fun!</p>
+          </div>
+          <div class="card festival-card" data-id="raksha">
+            <div class="interactive-area" id="raksha-area">
+              <span class="card-icon interactive-icon" onclick="triggerFestivalAnim('raksha', event)">🧵</span>
+            </div>
+            <h3>Raksha Bandhan</h3>
+            <p>Celebrating brothers and sisters!</p>
+          </div>
+          <div class="card festival-card" data-id="ganesh">
+            <div class="interactive-area" id="ganesh-area">
+              <span class="card-icon interactive-icon" onclick="triggerFestivalAnim('ganesh', event)">🐘</span>
+            </div>
+            <h3>Ganesh Chaturthi</h3>
+            <p>Welcome Lord Ganesha!</p>
+          </div>
+          <div class="card festival-card" data-id="makar">
+            <div class="interactive-area" id="makar-area">
+              <span class="card-icon interactive-icon" onclick="triggerFestivalAnim('makar', event)">🪁</span>
+            </div>
+            <h3>Makar Sankranti</h3>
+            <p>Fly high with colorful kites!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Explore India Interactive Map -->
+      <section id="map-section">
+        <h2 class="section-title">Explore India Map 🗺️</h2>
+        <div class="map-container">
+          <div class="map-placeholder">
+            <!-- Simplified Interactive Map -->
+            <svg viewBox="0 0 400 450" class="india-svg">
+              <path d="M150,50 L250,50 L300,150 L250,350 L150,400 L50,250 Z" fill="#fff9c4" stroke="#fbc02d" stroke-width="2" />
+              <!-- North -->
+              <circle cx="200" cy="100" r="25" class="map-point" onclick="showStateInfo('North India')" />
+              <text x="180" y="105" class="map-label">North</text>
+              <!-- West -->
+              <circle cx="100" cy="220" r="25" class="map-point" onclick="showStateInfo('West India')" />
+              <text x="85" y="225" class="map-label">West</text>
+              <!-- East -->
+              <circle cx="300" cy="220" r="25" class="map-point" onclick="showStateInfo('East India')" />
+              <text x="285" y="225" class="map-label">East</text>
+              <!-- South -->
+              <circle cx="200" cy="350" r="25" class="map-point" onclick="showStateInfo('South India')" />
+              <text x="180" y="355" class="map-label">South</text>
+              <!-- Central -->
+              <circle cx="200" cy="220" r="25" class="map-point" onclick="showStateInfo('Central India')" />
+              <text x="175" y="225" class="map-label">Central</text>
+            </svg>
+          </div>
+          <div id="state-info" class="state-info-card">
+            <h3>Click a region on the map!</h3>
+            <p>Discover festivals, food, and dresses.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Rangoli Creator Tool -->
+      <section id="rangoli-section">
+        <h2 class="section-title">Rangoli Creator 🎨</h2>
+        <div class="rangoli-tool">
+          <div class="rangoli-canvas-container">
+            <canvas id="rangoli-canvas" width="400" height="400"></canvas>
+          </div>
+          <div class="rangoli-controls">
+            <div class="color-palette">
+              <div class="color-swatch" style="background: #ff1744;" onclick="setRangoliColor('#ff1744')"></div>
+              <div class="color-swatch" style="background: #ffea00;" onclick="setRangoliColor('#ffea00')"></div>
+              <div class="color-swatch" style="background: #00e676;" onclick="setRangoliColor('#00e676')"></div>
+              <div class="color-swatch" style="background: #2979ff;" onclick="setRangoliColor('#2979ff')"></div>
+              <div class="color-swatch" style="background: #d500f9;" onclick="setRangoliColor('#d500f9')"></div>
+              <div class="color-swatch" style="background: #ff9100;" onclick="setRangoliColor('#ff9100')"></div>
+            </div>
+            <div class="tool-buttons">
+              <button class="tool-btn" onclick="clearRangoli()">Clear 🧹</button>
+              <button class="tool-btn" onclick="downloadRangoli()">Save 💾</button>
+            </div>
+            <p style="font-size: 0.9rem; margin-top: 10px;">Draw your own Rangoli pattern!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Culture Quiz Game -->
+      <section id="quiz-section">
+        <h2 class="section-title">Culture Quiz Challenge 🏆</h2>
+        <div class="quiz-container">
+          <div id="quiz-start-screen">
+            <p style="font-size: 1.2rem; margin-bottom: 20px;">Test your knowledge and win the "Quiz Master" badge!</p>
+            <button class="play-btn" onclick="startQuiz()">Start Quiz! 🎮</button>
+          </div>
+          <div id="quiz-game-screen" style="display: none;">
+            <div class="quiz-header">
+              <span id="quiz-progress">Question 1 of 5</span>
+              <span id="quiz-score">Score: 0</span>
+            </div>
+            <div id="quiz-question" class="quiz-question"></div>
+            <div id="quiz-options" class="quiz-options"></div>
+          </div>
+          <div id="quiz-result-screen" style="display: none;">
+            <h3 id="quiz-result-title">Great Job!</h3>
+            <p id="quiz-result-text"></p>
+            <button class="play-btn" onclick="resetQuiz()">Play Again 🔄</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Badges Section -->
+      <section id="badges-section">
+        <h2 class="section-title">Your Achievement Badges 🏆</h2>
+        <div class="badges-grid" id="badges-container">
+          <div class="badge locked" id="badge-explorer">
+            <div class="badge-icon">🧭</div>
+            <h4>Festival Explorer</h4>
+          </div>
+          <div class="badge locked" id="badge-story">
+            <div class="badge-icon">📖</div>
+            <h4>Story Listener</h4>
+          </div>
+          <div class="badge locked" id="badge-artist">
+            <div class="badge-icon">🎨</div>
+            <h4>Rangoli Artist</h4>
+          </div>
+          <div class="badge locked" id="badge-scholar">
+            <div class="badge-icon">🎓</div>
+            <h4>Culture Scholar</h4>
+          </div>
+          <div class="badge locked" id="badge-quiz">
+            <div class="badge-icon">🧠</div>
+            <h4>Quiz Master</h4>
+          </div>
+        </div>
+      </section>
+
+      <!-- Good Habits -->
+      <section id="habits">
+        <h2 class="section-title">Good Habits (Sanskar) ✨</h2>
+        <div class="grid">
+          <div class="card">
+            <span class="card-icon">🙏</span>
+            <h3>Say Namaste</h3>
+            <p>Greet everyone with a smile and respect.</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">👴</span>
+            <h3>Respect Elders</h3>
+            <p>Always listen to and help your grandparents.</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">🤝</span>
+            <h3>Help Others</h3>
+            <p>Sharing is caring! Help your friends.</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">🗣️</span>
+            <h3>Speak Truth</h3>
+            <p>Being honest makes you a superhero!</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">🧹</span>
+            <h3>Cleanliness</h3>
+            <p>Keep your room and world clean.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Moral Stories -->
+      <section id="stories">
+        <h2 class="section-title">Wise Moral Stories 📖</h2>
+        <div class="grid">
+          <div class="card" data-id="story1">
+            <span class="card-icon">🦁</span>
+            <h3>The Lion & Rabbit</h3>
+            <p>A clever rabbit tricks a greedy lion.</p>
+          </div>
+          <div class="card" data-id="story2">
+            <span class="card-icon">🐦</span>
+            <h3>The Thirsty Crow</h3>
+            <p>Hard work and smart thinking!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Great Personalities -->
+      <section id="personalities">
+        <h2 class="section-title">Our Heroes 🦸‍♂️</h2>
+        <div class="grid">
+          <div class="card">
+            <span class="card-icon">⚔️</span>
+            <h3>Shivaji Maharaj</h3>
+            <p>A brave and wise king of Maharashtra.</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">👓</span>
+            <h3>Mahatma Gandhi</h3>
+            <p>The father of our nation who loved peace.</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">🐎</span>
+            <h3>Rani Lakshmibai</h3>
+            <p>The fearless Queen of Jhansi.</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">🧘</span>
+            <h3>Swami Vivekananda</h3>
+            <p>A great teacher who inspired the world.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- National Symbols -->
+      <section id="symbols">
+        <h2 class="section-title">National Symbols 🇮🇳</h2>
+        <div class="grid">
+          <div class="card">
+            <span class="card-icon">🚩</span>
+            <h3>Tiranga</h3>
+            <p>Our beautiful Saffron, White, and Green flag.</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">🐅</span>
+            <h3>Tiger</h3>
+            <p>Our strong and majestic National Animal.</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">🦚</span>
+            <h3>Peacock</h3>
+            <p>Our colorful and dancing National Bird.</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">🪷</span>
+            <h3>Lotus</h3>
+            <p>Our pure and lovely National Flower.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Shlokas -->
+      <section id="shlokas">
+        <h2 class="section-title">Shlokas & Prayers 🕉️</h2>
+        <div class="shloka-box">
+          <div class="shloka-text">
+            ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं <br>
+            भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात् ॥
+          </div>
+          <div class="shloka-meaning">
+            "O Divine Mother, may your light illuminate our intellect and lead us on the righteous path."
+          </div>
+          <button class="play-btn" onclick="playShloka('audio_gayatri')">🔊 Listen</button>
+        </div>
+        <div class="shloka-box">
+          <div class="shloka-text">
+            गुरुर्ब्रह्मा गुरुर्विष्णुः गुरुर्देवो महेश्वरः । <br>
+            गुरुः साक्षात् परब्रह्म तस्मै श्रीगुरवे नमः ॥
+          </div>
+          <div class="shloka-meaning">
+            "The teacher is like Brahma, Vishnu, and Shiva. I bow to the teacher who is the supreme reality."
+          </div>
+          <button class="play-btn" onclick="playShloka('audio_guru')">🔊 Listen</button>
+        </div>
+      </section>
+
+      <!-- Traditional Food -->
+      <section id="food">
+        <h2 class="section-title">Yummy Indian Food 🍲</h2>
+        <div class="grid">
+          <div class="card">
+            <span class="card-icon">🫓</span>
+            <h3>Roti & Dal</h3>
+            <p>Healthy and strong food for kids!</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">🍚</span>
+            <h3>Khichdi</h3>
+            <p>Soft and easy to eat, full of energy.</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">🟡</span>
+            <h3>Ladoo</h3>
+            <p>Sweet round treats for celebrations!</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="footer-pattern"></div>
+      <p>&copy; 2026 Bharat Kids. Made with ❤️ for the little ones.</p>
+      <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.7;">Learning Indian Culture is Fun!</p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top">↑</button>
+
+    <!-- AI Chatbot UI -->
+    <div id="chat-widget" class="chat-widget">
+      <button id="chat-toggle" class="chat-toggle">
+        <span class="chat-avatar">🤖</span>
+      </button>
+      <div id="chat-window" class="chat-window">
+        <div class="chat-header">
+          <span>Bharat Buddy 🐘</span>
+          <button id="chat-close">×</button>
+        </div>
+        <div id="chat-messages" class="chat-messages">
+          <div class="message bot">Namaste! I'm Bharat Buddy. Ask me anything about India! 🙏</div>
+        </div>
+        <div class="chat-input-area">
+          <input type="text" id="chat-input" placeholder="Type a question...">
+          <button id="chat-send">▶️</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2 id="modal-title" style="margin-bottom: 20px; color: var(--primary);"></h2>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/script.js"></script>
+  </body>
+</html>
+
